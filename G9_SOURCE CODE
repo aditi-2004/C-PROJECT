@@ -37,4 +37,4 @@ while (True):
                     t.sleep(1.5)
                     print("Your current balance is Rs.", user_balance, end = "\n\n\n")
                     break
-                if choice == 2:
+                elif choice == 2:
