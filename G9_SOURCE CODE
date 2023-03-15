@@ -38,3 +38,43 @@ while (True):
                     print("Your current balance is Rs.", user_balance, end = "\n\n\n")
                     break
                 elif choice == 2:
+                    print("Opening Cash Withdrawal...")
+                    t.sleep(1.5)
+
+                    while(True):
+                        withdraw_amt = float(input("Enter the amount you wish to withdraw > "))
+
+                        if withdraw_amt>user_balance:
+                            print("Can't withdraw Rs.", withdraw_amt)
+                            print("Please enter a lower amount!")
+                            continue
+
+                        else:
+                            print("Withdrawing Rs.", withdraw_amt)
+                            confirm = input("Confirm? Y/N > ")
+                            if confirm in ('Y', 'y'):
+                                user_balance-=withdraw_amt
+                                print("Amount withdrawn - Rs.", withdraw_amt)
+                                print("Remaining balance - Rs.", user_balance, end = "\n\n\n")
+                                break
+
+                            else:
+                                print("Cancelling transaction...")
+                                t.sleep(1)
+                                print("Transaction Cancelled!\n\n")
+                                break
+
+                    break
+
+                elif choice == 3:
+                    print("Loading Cash Deposit...")
+                    t.sleep(1.5)
+
+                    deposit_amt = float(input("Enter the amount you wish to Deposit > "))
+                    print("Depositing Rs.", deposit_amt)
+                    confirm = input("Confirm? Y/N > ")
+                    if confirm in ('Y', 'y'):
+                        user_balance+=deposit_amt
+                        print("Amount deposited - Rs.", deposit_amt)
+                        print("Updated balance - Rs.", user_balance, end = "\n\n\n")
+                    else:
