@@ -78,3 +78,43 @@ while (True):
                         print("Amount deposited - Rs.", deposit_amt)
                         print("Updated balance - Rs.", user_balance, end = "\n\n\n")
                     else:
+                        print("Cancelling Transaction...")
+                        t.sleep(1)
+                        print("Transaction Cancelled!\n\n")
+
+                    break
+
+
+                elif choice == 4:
+                    t.sleep(1.5)
+
+                    while(True):
+                        Account_number = input("Enter Account Number ")
+                        if len(Account_number)>=8:
+                            print("Proceeding.......")
+                        else:
+                            print("Error! Enter valid Account Number... ")
+                            break 
+                        transfer_amt = float(input("Enter the Amount you wish to Transfer > "))
+                        
+
+                        if transfer_amt>user_balance:
+                            print("Can't Transfer Rs.", transfer_amt)
+                            print("Please enter a Lower Amount!")
+                            continue
+
+                        else:    
+                            print("Transfering Rs.", transfer_amt , "to" , Account_number)
+                            confirm = input("Confirm? Y/N > ")
+                            if confirm in ('Y', 'y'):
+                                user_balance-=transfer_amt
+                                print("Amount Transfered - Rs.", transfer_amt, "to" , Account_number)
+                                print("Remaining Balance - Rs.", user_balance, end = "\n\n\n")
+                                break
+
+                            else:
+                                print("Cancelling Transaction...")
+                                t.sleep(1)
+                                print("Transaction Cancelled!\n\n")
+                                break
+
